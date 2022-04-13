@@ -1,0 +1,8 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sim_1/new/tb_clock_enable.vhd,1648038295,vhdl,,,,tb_clock_enable,,,,,,,,
+D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sim_1/new/tb_cnt_up_down.vhd,1648042711,vhdl,,,,tb_cnt_up_down,,,,,,,,
+D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sources_1/new/clock_enable.vhd,1648038278,vhdl,D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sim_1/new/tb_clock_enable.vhd,,,clock_enable,,,,,,,,
+D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sources_1/new/cnt_up_down.vhd,1648039118,vhdl,D:/Documents/xbilek26/digital-electronics-1/lab/06-counter/counter/counter.srcs/sim_1/new/tb_cnt_up_down.vhd,,,cnt_up_down,,,,,,,,
