@@ -1,11 +1,11 @@
-# YOUR_PROJECT_TITLE
+# Digital clock (hh mm ss) with time/alarm setting
 
 ### Team members
 
-* Member 1 (responsible for xxx)
-* Member 2 (responsible for xxx)
-* Member 3 (responsible for xxx)
-* ...
+* František Bílek (responsible for xxx)
+* Viktor Buzovský (responsible for xxx)
+* Miroslav Babeľa (responsible for xxx)
+* Peter Balušík (responsible for xxx)
 
 ### Table of contents
 
@@ -20,7 +20,7 @@
 
 ## Project objectives
 
-Write your text here.
+
 
 <a name="hardware"></a>
 
