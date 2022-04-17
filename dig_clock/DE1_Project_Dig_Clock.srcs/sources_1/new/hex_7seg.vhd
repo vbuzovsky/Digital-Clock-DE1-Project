@@ -64,7 +64,6 @@ begin
             when "0001" =>
                 seg_o <= "1001111"; -- 1
 
-            -- WRITE YOUR CODE HERE
             when "0010" =>
                 seg_o <= "0010010"; -- 2
 
@@ -89,22 +88,6 @@ begin
             when "1001" =>
                 seg_o <= "0000100";-- 9
 
-            when "1010" =>
-                seg_o <= "0001000";-- A
-
-            when "1011" =>
-                seg_o <= "1100000";-- b
-
-            when "1100" =>
-                seg_o <= "0110001";-- C
-
-            when "1101" =>
-                seg_o <= "1000010";-- d
-
-            when "1110" =>
-                seg_o <= "0110000"; -- E
-            when others =>
-                seg_o <= "0111000"; -- F
         end case;
     end process p_7seg_decoder;
 

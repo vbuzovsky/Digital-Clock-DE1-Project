@@ -44,11 +44,11 @@ entity driver_7seg_4digits is
     port(
         clk     : in  std_logic;
         reset   : in  std_logic;
-        data_h0_i : in  std_logic_vector(2 downto 0);
+        data_h0_i : in  std_logic_vector(3 downto 0); -- 17.04 - CHANGED ALL TO 4BIT SINCE to_bcd_conv outputs 4bit only
         data_h1_i : in  std_logic_vector(3 downto 0);
-        data_m0_i : in  std_logic_vector(2 downto 0);
+        data_m0_i : in  std_logic_vector(3 downto 0);
         data_m1_i : in  std_logic_vector(3 downto 0);
-        data_s0_i : in  std_logic_vector(2 downto 0);
+        data_s0_i : in  std_logic_vector(3 downto 0);
         data_s1_i : in  std_logic_vector(3 downto 0);
         seg_o   : out std_logic_vector(6 downto 0);
         dig_o   : out std_logic_vector(5 downto 0)
@@ -75,7 +75,7 @@ begin
         generic map(
             -- FOR SIMULATION, CHANGE THIS VALUE TO 4
             -- FOR IMPLEMENTATION, KEEP THIS VALUE TO 400,000
-            g_MAX => 400000
+            g_MAX => 4
         )
         port map(
             clk   => clk,
