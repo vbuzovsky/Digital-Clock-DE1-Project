@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL; 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -44,9 +45,25 @@ entity clock_setter is
 end clock_setter;
 
 architecture Behavioral of clock_setter is
+    signal ss, mm : integer range 0 to 59;
+    signal hr : integer range 0 to 23;
 begin
 
+clock_setter : process
+begin
+    if(sw(0) = '1') then
+        if(button_1 = '1') then
+            hr <= hr + 1;
+        elsif(button_2 = '1') then
+            mm <= mm + 1;
+        elsif (button_3 = '1') then
+            ss <= ss + 1;
+        end if;
+    end if;
+    wait;
+end process clock_setter;
 
-
-
+seconds_o <= conv_std_logic_vector(ss,6);
+minutes_o <= conv_std_logic_vector(mm,6);
+hours_o <= conv_std_logic_vector(hr,5);
 end Behavioral;

@@ -16,14 +16,12 @@ end entity;
 architecture Behavorial of digital_clock is
     signal ss, mm : integer range 0 to 59;
     signal hr : integer range 0 to 23;
-    signal count : integer := 1;
-    --signal clk1 : std_logic := '1';
     signal s_en : std_logic;
 
 begin
   clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 1000000
+            g_MAX => 4
         )
         port map(
             clk   => clk,

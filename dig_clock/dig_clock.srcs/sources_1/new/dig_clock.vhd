@@ -23,7 +23,7 @@ architecture Behavorial of digital_clock is
 begin
   clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 4
+            g_MAX => 1
         )
         port map(
             clk   => clk,
