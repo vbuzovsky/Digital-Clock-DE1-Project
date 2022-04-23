@@ -75,7 +75,7 @@ begin
         generic map(
             -- FOR SIMULATION, CHANGE THIS VALUE TO 4
             -- FOR IMPLEMENTATION, KEEP THIS VALUE TO 400,000
-            g_MAX => 4
+            g_MAX => 100000
         )
         port map(
             clk   => clk,
@@ -123,27 +123,27 @@ begin
             else
                 case s_cnt is
                     when "000" =>  -- SEC   
-                        s_hex <= data_s1_i;
+                        s_hex <= data_s0_i;
                         dig_o <= "111110";
 
                     when "001" =>
-                        s_hex <= data_s0_i;
+                        s_hex <= data_s1_i;
                         dig_o <= "111101";
 
                     when "010" =>
-                        s_hex <= data_m1_i;
+                        s_hex <= data_m0_i;
                         dig_o <= "111011";
                     
                     when "011" =>
-                        s_hex <=  data_m0_i;
+                        s_hex <=  data_m1_i;
                         dig_o <= "110111";
                         
                    when "100" =>
-                        s_hex <=  data_h1_i;
+                        s_hex <=  data_h0_i;
                         dig_o <= "101111";
 
                    when others =>
-                        s_hex <=  data_h0_i;
+                        s_hex <=  data_h1_i;
                         dig_o <= "011111";
                 end case;
             end if;

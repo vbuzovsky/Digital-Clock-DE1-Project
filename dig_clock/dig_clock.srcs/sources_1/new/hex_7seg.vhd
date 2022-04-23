@@ -85,7 +85,7 @@ begin
             when "1000" =>
                 seg_o <= "0000000"; -- 8
 
-            when "1001" =>
+            when others =>
                 seg_o <= "0000100";-- 9
 
         end case;
