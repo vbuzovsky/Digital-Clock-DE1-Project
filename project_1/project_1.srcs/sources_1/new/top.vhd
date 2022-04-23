@@ -14,6 +14,7 @@ entity top is
         BTND : in std_logic;
    
         SW0 : in std_logic;
+        SW1 : in std_logic;
       
         CA : out STD_LOGIC;
         CB : out STD_LOGIC;
@@ -86,6 +87,7 @@ begin
                rst => BTNC,
                
                sw_i => SW0,
+               activate_sw_i => SW1,
                btn_1_i => BTNU_deb,
                btn_2_i => BTNL_deb,
                btn_3_i => BTNR_deb,

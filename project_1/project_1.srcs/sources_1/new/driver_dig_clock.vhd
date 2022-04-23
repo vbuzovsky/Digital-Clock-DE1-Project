@@ -36,6 +36,7 @@ entity driver_dig_clock is
         clk  : in  std_logic;
         rst  : in std_logic;
         sw_i : in std_logic;
+        activate_sw_i : in std_logic;
         btn_1_i : in std_logic;
         btn_2_i : in std_logic;
         btn_3_i : in std_logic;
@@ -79,7 +80,7 @@ begin
             hour => s_d_hrs
         );
     
-    clock_setter: entity work.clock_setter
+    clock_setter : entity work.clock_setter
         port map(
            button_1 => btn_1_i,
            button_2 => btn_2_i,
@@ -88,6 +89,20 @@ begin
            seconds_o => s_c_secs,
            minutes_o => s_c_mins,
            hours_o => s_c_hrs
+        );
+        
+    alarm : entity work.time_comp_alarm
+        port map(
+            act_sw => activate_sw_i,
+            clk => clk,
+            
+            set_second => s_c_secs,
+            set_minute => s_c_mins,
+            set_hour => s_c_hrs,
+            
+            current_second => s_d_secs,
+            current_minute => s_d_mins,
+            current_hour => s_d_hrs
         );
     
     to_bcd_conv_s : entity work.to_bcd_conv
