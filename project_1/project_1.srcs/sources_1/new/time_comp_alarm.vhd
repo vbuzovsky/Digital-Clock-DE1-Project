@@ -43,9 +43,6 @@ entity time_comp_alarm is
            ring : out STD_LOGIC
            );
            
-          
-           
-           
 end time_comp_alarm;
 
 architecture Behavioral of time_comp_alarm is
