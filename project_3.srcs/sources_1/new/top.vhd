@@ -7,7 +7,13 @@ entity top is
     port(
         CLK100MHZ     : in  std_logic;
         BTNC  : in  std_logic;
-      
+        
+        BTNU : in std_logic;
+        BTNL : in std_logic;
+        BTNR : in std_logic;
+        BTND : in std_logic;
+   
+        SW0 : in std_logic;
       
         CA : out STD_LOGIC;
         CB : out STD_LOGIC;
@@ -34,13 +40,57 @@ architecture Behavioral of top is
     
     signal s_s0  : std_logic_vector(3 downto 0);
     signal s_s1  : std_logic_vector(3 downto 0);
+    
+    signal BTNU_deb : std_logic;
+    signal BTNL_deb : std_logic;
+    signal BTNR_deb : std_logic;
+    signal BTND_deb : std_logic;
 
 begin
+    BTNU_debouncer : entity work.button_debouncer
+        port map(
+            input => BTNU,
+            cclk => CLK100MHZ,
+            rst => BTNC,
+            output => BTNU_deb
+        );
+        
+    BTNL_debouncer : entity work.button_debouncer
+        port map(
+            input => BTNL,
+            cclk => CLK100MHZ,
+            rst => BTNC,
+            output => BTNL_deb
+        );
+        
+    BTNR_debouncer : entity work.button_debouncer
+        port map(
+            input => BTNR,
+            cclk => CLK100MHZ,
+            rst => BTNC,
+            output => BTNR_deb
+        );
+        
+    BTND_debouncer : entity work.button_debouncer
+        port map(
+            input => BTND,
+            cclk => CLK100MHZ,
+            rst => BTNC,
+            output => BTND_deb
+        );
+
+
     driver_dig_clock : entity work.driver_dig_clock
         port map(
                clk => CLK100MHZ,
                rst => BTNC,
                
+               sw_i => SW0,
+               btn_1_i => BTNU_deb,
+               btn_2_i => BTNL_deb,
+               btn_3_i => BTNR_deb,
+               btn_4_i => BTND_deb,
+                
                h0_o => s_h0,
                h1_o => s_h1,
                

@@ -36,7 +36,7 @@ entity clock_setter is
     Port ( button_1 : in STD_LOGIC;
            button_2 : in STD_LOGIC;
            button_3 : in STD_LOGIC;
-           sw : in STD_LOGIC_VECTOR (1 downto 0);
+           sw : in STD_LOGIC;
            seconds_o : out STD_LOGIC_VECTOR(5 downto 0);
            minutes_o : out STD_LOGIC_VECTOR(5 downto 0);
            hours_o : out STD_LOGIC_VECTOR(4 downto 0));
@@ -51,13 +51,26 @@ begin
 
 clock_setter : process
 begin
-    if(sw(0) = '1') then
+    if(sw = '1') then -- WAS: if(sw(0) = '1') then | changed bcs of 
+                            -- change to sw_i, cant be vector?
         if(button_1 = '1') then
-            hr <= hr + 1;
+            if (hr = 23) then
+                hr <= 0;
+            else
+                hr <= hr + 1;
+            end if;
         elsif(button_2 = '1') then
-            mm <= mm + 1;
+            if (mm = 59) then
+                mm <= 0;
+            else
+                mm <= mm + 1;
+            end if;
         elsif (button_3 = '1') then
-            ss <= ss + 1;
+            if(ss = 59) then
+                ss <= 0;
+            else
+                ss <= ss + 1;
+            end if;
         end if;
     end if;
     wait;

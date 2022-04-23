@@ -39,6 +39,7 @@ entity driver_dig_clock is
         btn_1_i : in std_logic;
         btn_2_i : in std_logic;
         btn_3_i : in std_logic;
+        btn_4_i : in std_logic; -- BUTTON PRO PREPIS HODNOT V CLOCKU
         h0_o : out std_logic_vector(3 downto 0);
         h1_o : out std_logic_vector(3 downto 0);
         m0_o : out std_logic_vector(3 downto 0);
@@ -57,7 +58,7 @@ architecture Behavioral of driver_dig_clock is
     signal s_d_secs  : std_logic_vector(5 downto 0);
     signal s_d_mins : std_logic_vector(5 downto 0);
     signal s_d_hrs : std_logic_vector(4 downto 0);
--- Internal signals from clock_setter to p_mux
+-- Internal signals from clock_setter to p_mux and dig_clock
     signal s_c_secs  : std_logic_vector(5 downto 0):="000000";
     signal s_c_mins : std_logic_vector(5 downto 0):= "000000";
     signal s_c_hrs : std_logic_vector(4 downto 0):= "00000";
@@ -66,21 +67,28 @@ begin
         port map(
             clk   => clk,
             reset => rst,
+            
+            -- HODNOTY Z VYSTUPU clock_setter + BUTTON
+            set_button => btn_4_i,
+            set_second => s_c_secs,
+            set_minute => s_c_mins,
+            set_hour => s_c_hrs,
+            
             second => s_d_secs,
             minute => s_d_mins,
             hour => s_d_hrs
         );
     
-    --clock_setter: entity work.clock_setter
-    --    port map(
-    --       button_1 => btn_1_i,
-    --       button_2 => btn_2_i,
-    --       button_3 => btn_3_i,
-    --       sw => sw_i,
-    --       seconds_o => s_c_secs,
-    --       minutes_o => s_c_mins,
-    --       hours_o => s_c_hrs
-    --    );
+    clock_setter: entity work.clock_setter
+        port map(
+           button_1 => btn_1_i,
+           button_2 => btn_2_i,
+           button_3 => btn_3_i,
+           sw => sw_i,
+           seconds_o => s_c_secs,
+           minutes_o => s_c_mins,
+           hours_o => s_c_hrs
+        );
     
     to_bcd_conv_s : entity work.to_bcd_conv
         generic map(
