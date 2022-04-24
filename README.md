@@ -26,7 +26,7 @@
 
 ## Hardware description
 
-   # Nexys A7-50T
+   Nexys A7-50T
    ![images/nexys_board.png](images/nexys_board.png)
 
 | **Callout** | **Component Description** | **Callout** | **Component Description** |
@@ -46,6 +46,9 @@
    | 13 | Five pushbuttons | 28 | Xilinx Artix-7 FPGA |
    | 14 | Pmod port(s) | 29 | DDR2 memory |
    | 15 | Temperature sensor |  |  |
+   
+   BASIC I/O schematic
+   ![images/nexys_basic_scheme.png](images/nexys_basic_scheme.png)
    
 
 <a name="modules"></a>
