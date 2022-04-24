@@ -26,6 +26,8 @@
 
 ## Hardware description
 
+![images/nexys_board.png](images/nexys_board.png)
+
 | **Callout** | **Component Description** | **Callout** | **Component Description** |
    | :-: | :-: | :-: | :-: |
    | 1 | 	Power jack | 16 | JTAG port for (optional) external cable |
