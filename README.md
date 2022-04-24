@@ -26,7 +26,7 @@
 
 ## Hardware description
 
-![images/nexys_board.png](images/nexys_board.png)
+   ![images/nexys_board.png](images/nexys_board.png)
 
 | **Callout** | **Component Description** | **Callout** | **Component Description** |
    | :-: | :-: | :-: | :-: |
