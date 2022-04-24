@@ -20,6 +20,9 @@
 
 ## Project objectives
 
+Project goal is to implement digital clock on Nexys A7-50T board, including time setting and alarm function all in hh:mm:ss format.
+Inputs to the clock are 5 buttons and 2 switches.
+
 
 
 <a name="hardware"></a>
