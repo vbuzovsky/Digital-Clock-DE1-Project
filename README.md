@@ -27,7 +27,7 @@
 ## Hardware description
 
 | **Callout** | **Component Description** | **Callout** | **Component Description** |
-   | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+   | :-: | :-: | :-: | :-: |
    | 1 | 	Power jack | 16 | JTAG port for (optional) external cable |
    | 2 | 	Power switch | 17 | Tri-color (RGB) LEDs |
    | 3 | USB host connector | 18 | Slide switches (16) |
