@@ -2,10 +2,10 @@
 
 ### Team members
 
-* František Bílek (responsible for xxx)
-* Viktor Buzovský (responsible for xxx)
-* Miroslav Babeľa (responsible for xxx)
-* Peter Balušík (responsible for xxx)
+* František Bílek
+* Viktor Buzovský
+* Miroslav Babeľa
+* Peter Balušík
 
 ### Table of contents
 
