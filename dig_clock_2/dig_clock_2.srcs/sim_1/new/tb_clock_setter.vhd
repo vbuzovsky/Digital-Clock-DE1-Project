@@ -30,14 +30,14 @@ begin
            button_2 => s_btn_2,
            button_3 => s_btn_3,
            sw => s_sw,
-           seconds_o => s_sec,
-           minutes_o => s_min,
-           hours_o => s_hrs
+           sec_o => s_sec,
+           min_o => s_min,
+           hr_o => s_hrs
         );
     p_btn1_press: process
     begin
         s_btn_1 <= '0';
-        wait for 10 ns;
+        wait for 120 ns;
         s_btn_1 <= '1';
         wait for 10 ns;
         s_btn_1 <= '0';

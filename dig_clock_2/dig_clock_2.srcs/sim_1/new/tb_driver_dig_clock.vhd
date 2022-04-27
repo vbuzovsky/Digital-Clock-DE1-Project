@@ -88,19 +88,37 @@ begin
     p_reset_gen : process
     begin
         s_rst <= '0';
-        wait for 200 ns;
+        wait for 10 ns;
         s_rst <= '1';
-        wait for 500 ns;
+        wait for 10 ns;
         s_rst <= '0';
         wait;
     end process p_reset_gen;
+    --BUTTON PRESS
+    p_btn1_press: process
+    begin
+        if(s_sw_i = '1') then
+            s_btn_1 <= '0';
+            wait for 20 ns;
+            s_btn_1 <= '1';
+            wait for 10 ns;
+            s_btn_1 <= '0';
+        end if;
+        wait;
+    end process p_btn1_press;
     p_stimulus : process
     begin
+        s_btn_4 <= '0';
         report "Stimulus started" severity note;
         s_sw_i <= '0';
-        s_btn_1 <= '0';
-        s_btn_2 <= '0';
-        s_btn_3 <= '0';
+        wait for 100 ns;
+        s_sw_i <= '1';
+        wait for 300 ns;
+        s_sw_i <= '0';
+        wait for 100 ns;
+        s_btn_4 <= '1';
+        wait for 20 ns;
+        s_btn_4 <= '0';
         wait;
     end process p_stimulus;
 end Behavioral;
