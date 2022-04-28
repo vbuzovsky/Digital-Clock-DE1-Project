@@ -33,7 +33,7 @@ entity clock_setter is
            --Switch to enable clock_setter
            sw : in STD_LOGIC;
            --Clock_setter outputs
-           sec_o : out STD_LOGIC_VECTOR(5 downto 0);
+--           sec_o : out STD_LOGIC_VECTOR(5 downto 0);
            min_o : out STD_LOGIC_VECTOR(5 downto 0);
            hr_o : out STD_LOGIC_VECTOR(4 downto 0)
     );
@@ -41,7 +41,7 @@ end clock_setter;
 
 architecture Behavioral of clock_setter is
 -- Internal unsigned signals for hours, minutes and seconds - default value 0
-    signal s_sec : unsigned (5 downto 0) := (others => '0');
+--    signal s_sec : unsigned (5 downto 0) := (others => '0');
     signal s_min : unsigned (5 downto 0) := (others => '0');
     signal s_hr  : unsigned (4 downto 0) := (others => '0');
 
@@ -70,7 +70,7 @@ begin
         
     end process clock_setter;
 -- Retyping unsigned to logic_vector
-    sec_o <= std_logic_vector(s_sec);
+--    sec_o <= std_logic_vector(s_sec);
     min_o <= std_logic_vector(s_min);
     hr_o <= std_logic_vector(s_hr);
 end Behavioral;

@@ -52,7 +52,7 @@ architecture Behavioral of time_comp_alarm is
     signal memory_hrs : std_logic_vector(4 downto 0);
 
 begin
-    alarm : process(activate_sw_i, button_set)
+    alarm : process(activate_sw_i,button_set)
     begin
         if(activate_sw_i = '1') then
                if(button_set = '1') then 
@@ -65,6 +65,8 @@ begin
                 else
                     ring <= '0';
                 end if;
+      else
+        ring <= '0';
       end if;
     end process;
     

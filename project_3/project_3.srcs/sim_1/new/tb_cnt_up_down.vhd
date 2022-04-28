@@ -10,28 +10,31 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity tb_button_debouncer is
+entity tb_cnt_up_down is
 
-end tb_button_debouncer;
+end tb_cnt_up_down;
 
-architecture testbench of tb_button_debouncer is
-    
+architecture testbench of tb_cnt_up_down is
+
     constant c_CLK_100MHZ_PERIOD : time := 10 ns;
-    --Local signals - inputs
+    constant c_CNT_WIDTH         : natural := 4;
+    
     signal s_clk_100MHZ : std_logic;
-    signal s_rst        : std_logic;
-    signal s_btn_1      : std_logic;
-    signal s_out        : std_logic;
+    signal s_en : std_logic;
+    signal s_rst : std_logic;
+    signal s_cnt_up : std_logic;
+    signal s_cnt    : std_logic_vector(c_CNT_WIDTH - 1 downto 0);
 begin
     -- Testing driver_dig_clock
-   uut_button_debouncer : entity work.button_debouncer
+    uut_cnt: entity work.cnt_up_down_2
         port map(
-            cclk => s_clk_100MHZ,
-            rst => s_rst,
-            input => s_btn_1,
-            output => s_out
+           clk => s_clk_100MHZ,
+           en_i => s_en,
+           reset => s_rst,
+           cnt_up_i => s_cnt_up,
+           cnt_o => s_cnt
         );
-    --CLOCK GENERATION
+        
     p_clk_gen : process
     begin
         while now < 100000 ns loop -- 75 periods of 100MHz clock
@@ -42,37 +45,34 @@ begin
         end loop;
         wait;
     end process p_clk_gen;
-    --RESET GENERATION;
+
     p_reset_gen : process
     begin
-        s_rst <= '0';
-        wait for 10 ns;
-        s_rst <= '1';
-        wait for 10 ns;
+        s_rst <= '0'; wait for 20 ns;
+        -- Reset activated
+        s_rst <= '1'; wait for 60 ns;
+        -- Reset deactivated
         s_rst <= '0';
         wait;
     end process p_reset_gen;
-    --BUTTON PRESS
+    
     p_stimulus : process
     begin
-        report "Stimulus started" severity note;
-        s_btn_1 <= '0';
-        wait for 20 ns;
-        s_btn_1 <= '1';
-        wait for 2 ns;
-        s_btn_1 <= '0';
-        wait for 5 ns;
-        s_btn_1 <= '1';
-        wait for 3 ns;
-        s_btn_1 <= '0';
-        wait for 8 ns;
-        s_btn_1 <= '1';
-        wait for 100 ns;
-        s_btn_1 <= '0';
-        wait for 4 ns;
-        s_btn_1 <= '1';
-        wait for 2 ns;
-        s_btn_1 <= '0';
+         report "Stimulus process started" severity note;
+
+        -- Enable counting
+        s_en     <= '1';
+        
+        -- Change counter direction
+        s_cnt_up <= '1';
+        wait for 380 ns;
+        s_cnt_up <= '0';
+        wait for 220 ns;
+
+        -- Disable counting
+        s_en     <= '0';
+
         report "Stimulus process finished" severity note;
+        wait;
     end process p_stimulus;
 end testbench;

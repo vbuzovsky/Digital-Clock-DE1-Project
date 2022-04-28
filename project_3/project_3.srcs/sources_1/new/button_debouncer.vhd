@@ -43,7 +43,7 @@ begin
 
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 1000000
+            g_MAX => 1 --1000000 for implementation 1 for simulation
         )
         port map(
             clk   => cclk,
