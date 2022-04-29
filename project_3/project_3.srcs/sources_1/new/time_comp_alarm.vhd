@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity time_comp_alarm is
     Port ( 
+           clk : std_logic;
            set_minute : in STD_LOGIC_VECTOR (5 downto 0);
            set_hour : in STD_LOGIC_VECTOR (4 downto 0);
            current_minute : in STD_LOGIC_VECTOR (5 downto 0);
@@ -52,21 +53,20 @@ architecture Behavioral of time_comp_alarm is
     signal memory_hrs : std_logic_vector(4 downto 0);
 
 begin
-    alarm : process(activate_sw_i,button_set)
+    alarm : process(clk)
     begin
         if(activate_sw_i = '1') then
                if(button_set = '1') then 
                     memory_mins <= set_minute;
                     memory_hrs <= set_hour;
-                end if;
-     
-                if((memory_mins = current_minute) and (memory_hrs = current_hour)) then
+               end if;
+               if((memory_mins = current_minute) and (memory_hrs = current_hour)) then
                     ring <= '1';
-                else
+               else
                     ring <= '0';
-                end if;
+               end if;
       else
-        ring <= '0';
+          ring <= '0';
       end if;
     end process;
     

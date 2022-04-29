@@ -70,7 +70,7 @@ architecture Behavioral of driver_dig_clock is
 begin
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 100000000
+            g_MAX => 2 --100000000 for implementation
         )
         port map(
             clk   => clk,
@@ -79,7 +79,7 @@ begin
         );
      clk_en1 : entity work.clock_enable
         generic map(
-            g_MAX => 10000000
+            g_MAX => 2 --10000000 for implementation
         )
         port map(
             clk   => clk,
@@ -110,13 +110,14 @@ begin
            en_i => s_en1,
            clk => clk,
            sw => sw_i,
-           sec_o => s_c_secs,
+--           sec_o => s_c_secs,
            min_o => s_c_mins,
            hr_o => s_c_hrs
         );
         
     alarm : entity work.time_comp_alarm
         port map(
+            clk => clk,
             button_set => btn_3_i,
             ring => ring_o,
             activate_sw_i => activate_sw,
