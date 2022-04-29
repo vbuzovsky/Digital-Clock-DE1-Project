@@ -35,7 +35,7 @@ entity tb_driver_dig_clock is
 
 end tb_driver_dig_clock;
 
-architecture Behavioral of tb_driver_dig_clock is
+architecture testbench of tb_driver_dig_clock is
     
     constant c_CLK_100MHZ_PERIOD : time := 10 ns;
     --Local signals - inputs
@@ -157,4 +157,4 @@ begin
         report "Stimulus ended" severity note;
         wait;
     end process p_stimulus;
-end Behavioral;
+end testbench;
