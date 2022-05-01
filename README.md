@@ -103,7 +103,7 @@ Predesigned display driver from lab exercises. This module is used to control mu
 ![driver_7seg_6digits simulation](images/tb_driver_7seg_6digits.png)
 
 ### `to_bcd_conv.vhd`
-The outputs of the `dig_clock.vhd` module are 6-bit vectors in case of minutes and seconds and a 5-bit vector in case of hours. This block is used to convert these vectors into 4-bit BCD values, each representing one decimal digit, which then can be feed into the 7-segment driver.
+The outputs of the `dig_clock.vhd` module are 6-bit vectors in case of minutes and seconds and a 5-bit vector in case of hours. This block is used to convert these vectors into two 4-bit BCD values, each representing one decimal digit, which then can be feed into the 7-segment driver.
 
 [to_bcd_conv testbench]()
 ![to_bcd_conv simulation](images/tb_to_bcd_conv.png)
