@@ -30,7 +30,7 @@ Inputs to the clock are 5 buttons and 2 switches.
 ## Hardware description
 
    #### Nexys A7-50T
-   ![images/nexys_board.png](images/nexys_board.png)
+   ![nexys board](images/nexys_board.png)
 
 | **Callout** | **Component Description** | **Callout** | **Component Description** |
    | :-: | :-: | :-: | :-: |
@@ -51,7 +51,7 @@ Inputs to the clock are 5 buttons and 2 switches.
    | 15 | Temperature sensor |  |  |
    
    #### BASIC I/O schematic
-   ![images/nexys_basic_scheme.png](images/nexys_basic_scheme.png)
+   ![nexys basic scheme](images/nexys_basic_scheme.png)
    
 
 <a name="modules"></a>
