@@ -126,6 +126,11 @@ This block is used to encapsulate the `dig_clock.vhd`, `clock_setter.vhd` and `t
 
 Top module contains all above modules. It connects them together with hardware components.
 
+![top module scheme](images/FULL_SCHEME_2.jpg)
+
+[top module testbench]()
+![top module simulation]()
+
 <a name="video"></a>
 
 ## Video
