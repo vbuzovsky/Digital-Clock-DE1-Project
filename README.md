@@ -79,7 +79,7 @@ Mechanical pushbutton often generate fake transitions when pressed due to its me
 ![button_debouncer simulation](images/tb_button_debouncer.png)
 
 ### `clock_setter.vhd`
-Using this module, we set the time and choose whether it is the time from which the clock should continue to run or the time in which the alarm should be triggered. Apart from standard clock signal and enable signal, there are 2 buttons as inputs (using which we set the hours and minutes) and one switch with which we activate the module. The outputs of this block are the values of the hours and minutes we set.
+Using this module, we set the time and choose whether it is the time from which the clock should continue to run or the time in which the alarm should be triggered. Apart from standard clock signal and enable signal, there are 2 buttons as inputs, using which we set the hours and minutes, and one switch, which we activate the module with. The outputs of this block are the values of the hours and minutes we set.
 
 [clock_setter testbench]()
 ![clock_setter simulation](images/tb_clock_setter.png)
