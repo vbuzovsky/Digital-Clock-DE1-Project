@@ -85,19 +85,19 @@ Using this module, we set the time and choose whether it is the time from which 
 ![clock_setter simulation](images/tb_clock_setter.png)
 
 ### `cnt_up_down.vhd`
-Predesigned bidirectional counter from lab exercises.
+Predesigned bidirectional counter from lab exercises used without any changes.
 
 [cnt_up_down testbench]()
 ![cnt_up_down simulation](images/tb_cnt_up_down.png)
 
 ### `hex_7seg.vhd`
-Predesigned 7-segment display decoder from lab exercises.
+Predesigned 7-segment display decoder from lab exercises used without any changes.
 
 [hex_7seg testbench]()
 ![hex_7seg simulation](images/tb_hex_7seg.png)
 
 ### `driver_7seg_6digits.vhd`
-Predesigned display driver from lab exercises. This module is used to control multiple 7-segment displays (6 in our case). Using the multiplexer, we only select one display at a time.
+Predesigned display driver from lab exercises modified to control 6 digits (hh:mm:ss).
 
 [driver_7seg_6digits testbench]()
 ![driver_7seg_6digits simulation](images/tb_driver_7seg_6digits.png)
