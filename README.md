@@ -64,7 +64,8 @@ This module ensures the functionality of the digital clock as such. It takes clo
 
 By default, the time runs from 00:00:00. If we press the bottom button, the module reads the hours and minutes values from the `clock_setter.vhd` module and further counts the time from them.
 
-[dig_clock testbench]()
+Testbench: [tb_dig_clock.vhd]()
+Simulation:
 ![dig_clock simulation](images/tb_digital_clock.png)
 
 ### `time_comp_alarm.vhd`
