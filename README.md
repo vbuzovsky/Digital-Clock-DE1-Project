@@ -70,55 +70,55 @@ By default, the time runs from 00:00:00. If we press the bottom button, the modu
 ### `time_comp_alarm.vhd`
 This module works both to remember the set alarm time from `clock_setter.vhd` module and to trigger the alarm at the correct time. By activating `button_set` we assign alarm-time values to internal signals `memory_mins` and `memory_hrs`. The alarm function is active only when `activate_sw_i` is in the 1 position. If the values of the set alarm time and the current time are equal, the alarm is triggered.
 
-[time_comp_alarm testbench]()
+[time_comp_alarm testbench](project_3/project_3.srcs/sim_1/new/tb_alarm.vhd)
 ![time_comp_alarm simulation](images/tb_alarm.png)
 
 ### `button_debouncer.vhd`
 Mechanical pushbutton often generate fake transitions when pressed due to its mechanical nature. If we want to set the time using pushbuttons, these fake transitions would be very problematic and it is necessary to get rid of them. Module called `button_debouncer` is used to do the job. It consists of three D-latches connected in series. The first one takes the push button signal as its input. When the enable signal is on high level, the input gest shifted to the next latch. The outputs of all three latches are connected to an AND gate which output is output of the whole debouncer. `clock_enable.vhd` module is used as synchronous signal generator where its `g_MAX` value is set to 1 000 000 for 100 ms debounce delay.
 
-[button_debouncer testbench]()
+[button_debouncer testbench](project_3/project_3.srcs/sim_1/new/tb_button_debouncer.vhd)
 ![button_debouncer simulation](images/tb_button_debouncer.png)
 
 ### `clock_setter.vhd`
 Using this module, we set the time and choose whether it is the time from which the clock should continue to run or the time in which the alarm should be triggered. Apart from standard clock signal and enable signal, there are 2 buttons as inputs, using which we set the hours and minutes, and one switch, which we activate the module with. The outputs of this block are the values of the hours and minutes we set.
 
-[clock_setter testbench]()
+[clock_setter testbench](project_3/project_3.srcs/sim_1/new/tb_clock_setter.vhd)
 ![clock_setter simulation](images/tb_clock_setter.png)
 
 ### `cnt_up_down.vhd`
 Predesigned bidirectional counter from lab exercises used without any changes.
 
-[cnt_up_down testbench]()
+[cnt_up_down testbench](project_3/project_3.srcs/sim_1/new/tb_cnt_up_down.vhd)
 ![cnt_up_down simulation](images/tb_cnt_up_down.png)
 
 ### `hex_7seg.vhd`
 Predesigned 7-segment display decoder from lab exercises used without any changes.
 
-[hex_7seg testbench]()
+[hex_7seg testbench](project_3/project_3.srcs/sim_1/new/tb_hex_7seg.vhd)
 ![hex_7seg simulation](images/tb_hex_7seg.png)
 
 ### `driver_7seg_6digits.vhd`
 Predesigned display driver from lab exercises modified to control 6 digits (hh:mm:ss).
 
-[driver_7seg_6digits testbench]()
+[driver_7seg_6digits testbench](project_3/project_3.srcs/sim_1/new/tb_driver_7seg_4digits.vhd)
 ![driver_7seg_6digits simulation](images/tb_driver_7seg_6digits.png)
 
 ### `to_bcd_conv.vhd`
 The outputs of the `dig_clock.vhd` module are 6-bit vectors in case of minutes and seconds and a 5-bit vector in case of hours. This block is used to convert these vectors into two 4-bit BCD values, each representing one decimal digit, which then can be feed into the 7-segment driver.
 
-[to_bcd_conv testbench]()
+[to_bcd_conv testbench](project_3/project_3.srcs/sim_1/new/tb_to_bcd_conv.vhd)
 ![to_bcd_conv simulation](images/tb_to_bcd_conv.png)
 
 ### `clock_enable.vhd`
 Predesigned clock enable signal generator from lab exercises.
 
-[clock_enable testbench]()
+[clock_enable testbench](project_3/project_3.srcs/sim_1/new/tb_clock_enable.vhd)
 ![clock_enable simulation](images/tb_clock_enable.png)
 
 ### `driver_dig_clock.vhd`
 This block is used to encapsulate the `dig_clock.vhd`, `clock_setter.vhd` and `time_comp_alarm.vhd` modules. In addition, it contains a multiplexer, which switches between the current time display and the time setting, depending on the selected mode.
 
-[driver_dig_clock testbench]()
+[driver_dig_clock testbench](project_3/project_3.srcs/sim_1/new/tb_driver_dig_clock.vhd)
 ![driver_dig_clock simulation](images/tb_driver_dig_clock.png)
 
 <a name="top"></a>
