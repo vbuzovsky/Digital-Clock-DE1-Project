@@ -74,8 +74,8 @@ begin
     clk_en0 : entity work.clock_enable
         generic map(
             -- FOR SIMULATION, CHANGE THIS VALUE TO 4
-            -- FOR IMPLEMENTATION, KEEP THIS VALUE TO 400,000
-            g_MAX => 100000
+            -- FOR IMPLEMENTATION, KEEP THIS VALUE TO 100,000
+            g_MAX => 100000 --100000 for implementation // 4 for sim
         )
         port map(
             clk   => clk,
@@ -117,7 +117,7 @@ begin
     begin
         if rising_edge(clk) then
             if (reset = '1') then
-                s_hex <= data_s1_i;
+                s_hex <= data_s0_i;
                 
                 dig_o <= "111110";
             else

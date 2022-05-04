@@ -43,7 +43,7 @@ begin
 
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 4
+            g_MAX => 1000000 --1000000 for implementation 1 for simulation
         )
         port map(
             clk   => cclk,
@@ -51,17 +51,19 @@ begin
             ce_o  => s_en
         );
 
-    process(cclk, rst)
+    process(cclk)
     begin
-        if(rst = '1') then
-            delay1 <= '0';
-            delay2 <= '0';
-            delay3 <= '0';
-        elsif(s_en'event and s_en = '1') then
-            delay1 <= input;
-            delay2 <= delay1;
-            delay3 <= delay2;
-        end if;
+        if(rising_edge(cclk)) then
+            if(rst = '1') then
+                delay1 <= '0';
+                delay2 <= '0';
+                delay3 <= '0';
+            elsif(s_en = '1') then
+                delay1 <= input;
+                delay2 <= delay1;
+                delay3 <= delay2;
+            end if;
+      end if;
     end process;
         
     output <= delay1 and delay2 and delay3;    
