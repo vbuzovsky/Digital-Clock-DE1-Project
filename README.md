@@ -133,7 +133,7 @@ All the main blocks are interconnected in the `top.vhd` module and connected to 
 
 ## Video
 
-Write your text here
+![IMAGE ALT TEXT](http://img.youtube.com/vi/kt7w2j_RhDY/0.jpg)](http://www.youtube.com/watch?v=kt7w2j_RhDY "Digital clock - presentation")
 
 <a name="references"></a>
 
