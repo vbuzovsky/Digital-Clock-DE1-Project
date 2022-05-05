@@ -110,7 +110,7 @@ The outputs of the `dig_clock.vhd` module are 6-bit vectors in case of minutes a
 ![to_bcd_conv simulation](images/tb_to_bcd_conv.png)
 
 ### `clock_enable.vhd`
-Predesigned clock enable signal generator from lab exercises.
+Predesigned clock enable signal generator from lab exercises used without any changes.
 
 [clock_enable testbench](Digital_Clock_Final/Digital_Clock_Final.srcs/sim_1/new/tb_clock_enable.vhd)
 ![clock_enable simulation](images/tb_clock_enable.png)
